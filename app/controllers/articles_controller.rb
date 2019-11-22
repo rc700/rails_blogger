@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
+  layout 'application'
   include ArticlesHelper
 
   def index
