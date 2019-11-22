@@ -11,10 +11,12 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  # Displays form for new article
   def new
     @article = Article.new
   end
 
+  # Process data from form to create new article
   def create
     @article = Article.new(article_params)
     @article.save
@@ -26,4 +28,16 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to(articles_path)
   end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    @article.update(article_params)
+
+    redirect_to(article_path(@article))
+  end
+
 end
