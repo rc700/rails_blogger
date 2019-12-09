@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
+  before_action :require_login, except: [:index, :show]
   layout 'application'
   include ArticlesHelper
 
